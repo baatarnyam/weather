@@ -3,18 +3,16 @@ import { CiLocationOn } from "react-icons/ci";
 import { LuHome } from "react-icons/lu";
 import { CiHeart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
+import { DateLoc } from "./DateLoc";
 
-const LightWeather = ({ children }) => {
+const LightWeather = (props) => {
   return (
-    <div className="w-[280px] h-[500px] absolute top-[130px] left-[100px] rounded-[20px] bg-gray-50 p-[30px]">
+    <div className="w-[280px] h-[500px] absolute top-[130px] left-[100px] rounded-[20px] bg-white p-[30px]">
       <div className="w-full h-[270px] pr-[20px] pb-[15px] gap-[30px] flex flex-col items-center">
         <div className="w-full h-[100px] flex justify-between items-center">
-          <div className="">
-            <div className="text-gray-400">date</div>
-            <div className="text-[28px] font-bold">krakow</div>
-          </div>
-          <CiLocationOn className="w-[20px] h-[20px]" />
+          <DateLoc />
         </div>
+
         <Image src="/sun.png" width={160} height={160} />
       </div>
       <div className="w-full h-fit">
@@ -32,7 +30,7 @@ const LightWeather = ({ children }) => {
           <CiUser className="w-[20px] h-[20px]" />
         </div>
       </div>
-      {children}
+      {/* {children} */}
     </div>
   );
 };

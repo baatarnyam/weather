@@ -3,7 +3,7 @@ import NightWeather from "./NightWeather";
 
 const Night = ({ children }) => {
   return (
-    <div className="w-1/2 h-full bg-gray-900 flex justify-center pt-[130px] relative">
+    <div className="w-1/2 h-full bg-gray-900 flex justify-center pt-[130px] relative z-10">
       <Image
         src="/Ellipse 22.png"
         width={130}

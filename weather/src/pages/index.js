@@ -11,9 +11,9 @@ export default function Home() {
       <div className="w-[1000px] h-[700px] rounded-[15px] flex overflow-hidden relative">
         <Day></Day>
 
-        <div className="flex justify-center items-center gap-[15px] w-[140px] h-[140px] rounded-full bg-gray-200 before:[<Night/>] after:[<Day/>]">
-          <Image src="/leftIcon.svg" width={43} height={86} />
-          <Image src="/rightIcon.svg" width={43} height={86} />
+        <div className="flex justify-center items-center gap-[15px] w-[120px] h-[120px] rounded-full bg-gray-200 absolute top-[250px] left-[440px] z-20 before:[<Night/>] after:[<Day/>]">
+          <Image src="/leftIcon.svg" width={35} height={70} />
+          <Image src="/rightIcon.svg" width={36} height={70} />
         </div>
         <Night />
       </div>

@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { MdSearch } from "react-icons/md";
 import { data } from "autoprefixer";
 
-const Search = ({ children }) => {
+const Search = ({ setWeatherdata, cityName }) => {
   const [input, setInput] = useState("");
-  const [weather, setWeather] = useState([]);
+  const [suggest, setSuggest] = useState("");
 
   const cityNameHandler = (event) => {
     setInput(event.target.value);
@@ -20,10 +20,8 @@ const Search = ({ children }) => {
     const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${queryName}.json?access_token=pk.eyJ1IjoidHVydXV1dSIsImEiOiJjbDBhZW15ZHAwMGhjM2RtZjB6dnltZnhjIn0.HSb4dmJFSM2USxDkTsScDg`;
     const res = await axios(url);
     return res.data;
-    console.log(res);
   };
 
-  // let cityName = "";
   const cityWeather = async () => {
     const res = await searchCity(input);
     const coordinates = res.features[0].geometry.coordinates;
@@ -38,14 +36,12 @@ const Search = ({ children }) => {
         },
       }
     );
-    // cityName = res.city_name;
-    setWeather(data);
-    // console.log(cityName);
+
+    setWeatherdata(data);
   };
-  console.log(weather);
 
   return (
-    <div className="flex flex-col gap-[10px]">
+    <div className="w-1/2 flex flex-col gap-[10px] absolute left-[20px] top-[20px]">
       {" "}
       <div className="w-2/3 h-[30px] rounded-[15px] flex overflow-hidden">
         <MdSearch
@@ -63,13 +59,22 @@ const Search = ({ children }) => {
           onChange={(event) => cityNameHandler(event)}
         />
       </div>
-      <div className="w-2/3 h-[100px] rounded-[12px] bg-gray-100 p-[10px]">
+      <div className="w-2/3 h-[100px] rounded-[12px] bg-gray-100 p-[10px] flex flex-col justify-around">
         <div className="flex items-center gap-[5px]">
           <CiLocationOn />
-          <div>Tokyo,</div>
+          <div onChange={input}>{input}</div>
+        </div>
+
+        <div className="flex items-center gap-[5px]">
+          <CiLocationOn />
+          <div onChange={input}>{input}</div>
+        </div>
+
+        <div className="flex items-center gap-[5px]">
+          <CiLocationOn />
+          <div onChange={input}>{input}</div>
         </div>
       </div>
-      {children}
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import LightWeather from "./LightWeather";
 import Image from "next/image";
-import Search from "./Search";
 
-const Day = ({ children }) => {
+const Day = (props) => {
+  const { degree, cityName } = props;
   return (
     <div className="w-1/2 h-full bg-gray-200 pt-[20px] pl-[20px]">
       <Image
@@ -11,9 +11,8 @@ const Day = ({ children }) => {
         height={130}
         className="absolute top-[80px] left-[50px]"
       />
-      <Search />
-      <LightWeather />
-      {children}
+      {/* <Search setWeatherData={setWeatherData} weatherData={weatherData} /> */}
+      <LightWeather degree={degree} cityName={cityName} />
     </div>
   );
 };

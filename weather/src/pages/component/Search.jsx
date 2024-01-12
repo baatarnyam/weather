@@ -1,12 +1,13 @@
-import { CiLocationOn } from "react-icons/ci";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { MdSearch } from "react-icons/md";
 import { data } from "autoprefixer";
+import Suggest from "./Suggest";
+import { CiLocationOn } from "react-icons/ci";
 
-const Search = ({ setWeatherdata, cityName }) => {
+const Search = ({ setWeatherdata }) => {
   const [input, setInput] = useState("");
-  const [suggest, setSuggest] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
 
   const cityNameHandler = (event) => {
     setInput(event.target.value);
@@ -40,6 +41,10 @@ const Search = ({ setWeatherdata, cityName }) => {
     setWeatherdata(data);
   };
 
+  const suggestNameHandler = async (city) => {
+    const res = await axios.get(``);
+  };
+
   return (
     <div className="w-1/2 flex flex-col gap-[10px] absolute left-[20px] top-[20px]">
       {" "}
@@ -59,20 +64,14 @@ const Search = ({ setWeatherdata, cityName }) => {
           onChange={(event) => cityNameHandler(event)}
         />
       </div>
+      {/* <Suggest
+        suggestCityName={suggestCityName}
+        onChange={(event) => suggestNameHandler(event)}
+      /> */}
       <div className="w-2/3 h-[100px] rounded-[12px] bg-gray-100 p-[10px] flex flex-col justify-around">
         <div className="flex items-center gap-[5px]">
           <CiLocationOn />
-          <div onChange={input}>{input}</div>
-        </div>
-
-        <div className="flex items-center gap-[5px]">
-          <CiLocationOn />
-          <div onChange={input}>{input}</div>
-        </div>
-
-        <div className="flex items-center gap-[5px]">
-          <CiLocationOn />
-          <div onChange={input}>{input}</div>
+          <div></div>
         </div>
       </div>
     </div>

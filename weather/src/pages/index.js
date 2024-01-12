@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import Day from "./component/Day";
 import Night from "./component/Night";
 import { useState } from "react";

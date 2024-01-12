@@ -1,7 +1,7 @@
 import { IoLocationOutline } from "react-icons/io5";
 
 export const DateLoc = (props, { weatherdata, setWeatherdata }) => {
-  console.log(weatherdata);
+  // console.log(weatherdata);
   let newDate = new Date();
   const {
     month = newDate.toLocaleString("default", { month: "long" }),
